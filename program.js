@@ -11,18 +11,17 @@ server.on('request', function (request, response) {
     response.writeHead(200, {'Content-type' : 'text/css'});
     var fileContents = fs.readFileSync('./css/styles.css', {encoding: 'utf8'});
     response.write(fileContents);
-    //response.end();
+    response.end();
   }
-  if (request.method === 'GET' && request.url === '/test') {
+  else if (request.method === 'GET' && request.url === '/test') {
     fs.readFile('./index.html', 'utf-8', function(err, data){
       response.write(data);
       response.end();
     });
   } else {
-    //response.statusCode = 404;
+    response.statusCode = 404;
     fs.readFile('img/error.jpg', function(err, data) {
-      //response.writeHead(200, {'Content-Type' : 'image/jpg'});
-      //data.type = "image/jpeg";
+      response.writeHead(200, {'Content-Type' : 'image/jpg'});
       response.write(data);   
       response.end(data); 
     });  

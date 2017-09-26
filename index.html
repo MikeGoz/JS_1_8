@@ -3,18 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Task 1.8</title>
-    <script type="text/javascript"> // handler do wczytania css
-      if (request.url === '/css/styles.css') {
-        response.writeHead(200, {'Content-type' : 'text/css'});
-        var fileContents = fs.readFileSync('/css/styles.css', {encoding: 'utf8'});
-        response.write(fileContents);
-        response.end();
-      }
-    </script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">  
   </head>
   <body>
     <h1>WELCOME TO</h1>
-    <h1>OUR TEST PAGE<h1>
+    <h1>TEST PAGE<h1>
   </body>
 </html>
